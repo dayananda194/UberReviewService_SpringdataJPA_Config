@@ -15,29 +15,12 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity // represents the Review is a table in our databases
 @EntityListeners(AuditingEntityListener.class)
-public class Review {
-
-        @Id // This annotation states that id column is the primary  key
-        @GeneratedValue(strategy = GenerationType.IDENTITY) // identity means auto increment
-        private Long id;
+public class Review  extends  BaseModel{
 
         @Column(nullable = false)
         private String content;
 
         Double rating;
-
-        @Temporal(TemporalType.TIMESTAMP) // tells what format of date  should be stored ie time/timestamp
-        @CreatedDate  // tells what value to be stored
-        @Column(nullable = false)
-        private Date creaetedAt;
-
-        @Temporal(TemporalType.TIMESTAMP)
-        @LastModifiedDate
-        @Column(nullable = false)
-        private Date updatedAt;
-
-
-
 
 
 }
