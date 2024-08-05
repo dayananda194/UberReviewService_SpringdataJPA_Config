@@ -18,7 +18,7 @@ public abstract class BaseModel
 
 
     @Id // This annotation states that id column is the primary  key
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // identity means auto increment
+    @GeneratedValue(strategy = GenerationType.TABLE) // identity means auto increment
     protected Long id;
 
     @Temporal(TemporalType.TIMESTAMP) // tells what format of date  should be stored ie time/timestamp
