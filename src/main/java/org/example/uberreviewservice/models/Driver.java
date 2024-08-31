@@ -1,11 +1,10 @@
 package org.example.uberreviewservice.models;
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,8 @@ public class Driver extends BaseModel {
     @Column(nullable = false)
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "driver")
-    List<Booking> booking = new ArrayList<>();
+    @OneToMany(mappedBy = "driver",fetch = FetchType.LAZY)
+            @Fetch(FetchMode.SUBSELECT)
+    List<Booking> booking;
 
 }

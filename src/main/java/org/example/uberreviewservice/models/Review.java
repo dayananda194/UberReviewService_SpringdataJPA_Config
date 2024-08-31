@@ -6,7 +6,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +19,11 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @Inheritance(strategy = InheritanceType.JOINED)
 
+@Table(name="booking_review")
 public class Review  extends  BaseModel{
+
+
+
 
         @Column(nullable = false)
         private String content;

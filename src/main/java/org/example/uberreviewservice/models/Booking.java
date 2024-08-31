@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -15,7 +16,7 @@ import java.util.Date;
 public class Booking extends BaseModel{
 
 
-    @OneToOne // We have defined one to one relationship between the Booking and Review table
+    @OneToOne(fetch = FetchType.LAZY) // We have defined one to one relationship between the Booking and Review table
     private Review review; // Contraint unique will be added to the review_id in booking table
     @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
