@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity // represents the Review is a table in our databases
 @EntityListeners(AuditingEntityListener.class)
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 
 public class Review  extends  BaseModel{
 
